@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VisaAdvisor Country Hub seed table contracts",
+  "version": "0.1.0",
+  "date_format": "YYYY-MM-DD",
+  "tables": {
+    "datasets": {
+      "file": "datasets.csv",
+      "primary_key": "dataset_id",
+      "required": ["dataset_id", "title", "version", "canonical_url", "doi", "license_url", "record_count", "source_count"],
+      "headers": ["dataset_id", "title", "version", "scope", "canonical_url", "doi", "concept_doi", "local_canonical_path", "record_count", "source_count", "verified_on", "next_review_due", "license_url", "status"]
+    },
+    "places": {
+      "file": "places.csv",
+      "primary_key": "place_id",
+      "required": ["place_id", "iso2", "name_en", "place_type", "coverage_status", "source_dataset_id"],
+      "headers": ["place_id", "iso2", "name_en", "name_ar", "place_type", "parent_place_id", "region_en", "region_ar", "coverage_status", "last_verified", "next_review_due", "source_dataset_id", "notes"],
+      "foreign_keys": [{"column": "source_dataset_id", "table": "datasets", "target": "dataset_id"}],
+      "enums": {"place_type": ["sovereign_country", "territory", "special_administrative_region", "other"], "coverage_status": ["partial_verified", "identity_only", "provisional"]}
+    },
+    "planning_profiles": {
+      "file": "country-planning-profiles.csv",
+      "primary_key": "planning_profile_id",
+      "required": ["planning_profile_id", "place_id", "source_dataset_id", "version", "checked_on", "review_status"],
+      "headers": ["planning_profile_id", "place_id", "source_dataset_id", "version", "checked_on", "next_review_due", "suggested_days_min_editorial", "suggested_days_max_editorial", "buffer_days_editorial", "gateway_city_editorial", "gateway_iata_codes", "gateway_note", "route_intensity_editorial", "seasonality_note", "signature_experience_1_editorial", "signature_experience_2_editorial", "official_tourism_url", "official_entry_url", "review_status", "operational_note"],
+      "foreign_keys": [{"column": "place_id", "table": "places", "target": "place_id"}, {"column": "source_dataset_id", "table": "datasets", "target": "dataset_id"}],
+      "enums": {"review_status": ["reviewed", "provisional_alert"]},
+      "virtual_fields": {
+        "suggested_days_range_editorial": {
+          "members": ["suggested_days_min_editorial", "suggested_days_max_editorial"],
+          "description": "Declared composite used when the upstream evidence supports the editorial range as one planning judgment."
+        },
+        "signature_experiences": {
+          "members": ["signature_experience_1_editorial", "signature_experience_2_editorial"],
+          "description": "Declared composite used when an upstream source set supports the paired experience selection rather than one atomic field."
+        }
+      }
+    },
+    "entry_rules": {
+      "file": "passport-entry-rules.csv",
+      "primary_key": "entry_rule_id",
+      "required": ["entry_rule_id", "origin_place_id", "destination_place_id", "document_type", "travel_purpose", "entry_method_en", "primary_source_id", "last_verified", "next_review_due", "source_dataset_id"],
+      "headers": ["entry_rule_id", "origin_place_id", "destination_place_id", "document_type", "travel_purpose", "entry_method_en", "entry_method_ar", "stay_or_validity_en_legacy", "stay_or_validity_ar_legacy", "fees_en_legacy", "fees_ar_legacy", "passport_validity_en", "passport_validity_ar", "core_requirements_ar", "origin_named_explicitly", "rule_basis_ar", "primary_source_id", "secondary_source_ids", "last_verified", "next_review_due", "source_dataset_id", "source_version", "verification_status", "freshness_status", "editorial_note_ar"],
+      "foreign_keys": [{"column": "origin_place_id", "table": "places", "target": "place_id"}, {"column": "destination_place_id", "table": "places", "target": "place_id"}, {"column": "source_dataset_id", "table": "datasets", "target": "dataset_id"}, {"column": "primary_source_id", "table": "sources", "target": "source_id"}],
+      "enums": {"document_type": ["ordinary_passport"], "travel_purpose": ["tourism_short_visit"], "verification_status": ["verified_as_of_date", "provisional", "disputed", "withdrawn"], "freshness_status": ["current", "due", "stale", "expired"]},
+      "virtual_fields": {
+        "legacy_entry_rule_bundle": {
+          "members": ["entry_method_en", "entry_method_ar", "stay_or_validity_en_legacy", "stay_or_validity_ar_legacy", "fees_en_legacy", "fees_ar_legacy", "passport_validity_en", "passport_validity_ar", "core_requirements_ar", "origin_named_explicitly", "rule_basis_ar"],
+          "description": "Declared non-atomic evidence bundle preserved from the v13 source release pending reviewed field-by-field normalization."
+        }
+      }
+    },
+    "sources": {
+      "file": "sources.csv",
+      "primary_key": "source_id",
+      "required": ["source_id", "source_dataset_id", "place_id", "source_title", "source_type", "url", "checked_on", "authority_tier", "update_boundary"],
+      "headers": ["source_id", "source_dataset_id", "place_id", "source_title", "source_organization", "source_type", "source_role", "field_type", "evidence_scope", "url", "checked_on", "next_review_due", "volatility_class", "authority_tier", "automation_eligible", "update_boundary", "notes"],
+      "foreign_keys": [{"column": "source_dataset_id", "table": "datasets", "target": "dataset_id"}, {"column": "place_id", "table": "places", "target": "place_id"}],
+      "enums": {"authority_tier": ["A_CONTROLLING_OR_PRIMARY", "B_OFFICIAL_OPERATIONAL", "C_MULTILATERAL", "D_REPUTABLE_INDEPENDENT", "E_DISCOVERY_ONLY"], "update_boundary": ["propose_only", "report_only", "metadata_only"]}
+    },
+    "field_evidence": {
+      "file": "field-evidence.csv",
+      "primary_key": "evidence_edge_id",
+      "required": ["evidence_edge_id", "record_type", "record_id", "field_name", "claim_kind", "evidence_role", "source_dataset_id"],
+      "headers": ["evidence_edge_id", "record_type", "record_id", "field_name", "claim_kind", "source_id", "evidence_role", "confidence_label", "source_dataset_id", "notes"],
+      "foreign_keys": [{"column": "source_dataset_id", "table": "datasets", "target": "dataset_id"}],
+      "optional_foreign_keys": [{"column": "source_id", "table": "sources", "target": "source_id"}],
+      "enums": {"claim_kind": ["official_fact", "official_source_synthesis", "editorial_judgment", "computed_value", "personal_experience"], "evidence_role": ["primary", "supporting", "qualifying", "contradictory", "editorial_only"], "confidence_label": ["authoritative", "corroborated", "provisional", "disputed", "editorial"]}
+    },
+    "coverage_matrix": {
+      "file": "coverage-matrix.csv",
+      "primary_key": "coverage_id",
+      "required": ["coverage_id", "domain", "scope", "coverage_status", "release_id"],
+      "headers": ["coverage_id", "domain", "scope", "coverage_status", "record_count", "verified_record_count", "stale_or_due_count", "release_id", "notes"],
+      "enums": {"coverage_status": ["verified", "partial", "schema_only", "missing", "stale"]}
+    },
+    "change_log": {
+      "file": "change-log.csv",
+      "primary_key": "change_id",
+      "required": ["change_id", "release_id", "change_type", "changed_on", "summary"],
+      "headers": ["change_id", "release_id", "change_type", "changed_on", "summary", "source_or_issue", "approval_status"],
+      "enums": {"change_type": ["foundation", "addition", "correction", "source_update", "schema_change", "withdrawal"], "approval_status": ["approved", "pending_review"]}
+    }
+  }
+}
