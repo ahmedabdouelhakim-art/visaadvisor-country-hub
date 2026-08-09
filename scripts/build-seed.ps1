@@ -475,7 +475,7 @@ $checksumLines = foreach ($file in $artifactFiles) {
     $hash = (Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
     "$hash  $($file.Name)"
 }
-$checksumLines | Set-Content -LiteralPath (Join-Path $OutputDir 'checksums.sha256') -Encoding ASCII
+Write-HubUtf8Lf -Path (Join-Path $OutputDir 'checksums.sha256') -Content (($checksumLines -join "`n") + "`n")
 
 Write-Output ([pscustomobject]@{
     release = $ReleaseId
