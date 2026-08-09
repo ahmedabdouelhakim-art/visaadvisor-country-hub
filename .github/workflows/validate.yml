@@ -1,0 +1,23 @@
+name: Validate Country Hub
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild deterministic seed
+        shell: powershell
+        run: .\scripts\build-seed.ps1
+      - name: Validate schemas, relationships, evidence, and public PII fields
+        shell: powershell
+        run: .\scripts\validate.ps1
+      - name: Confirm generated release is reproducible
+        shell: powershell
+        run: git diff --exit-code
