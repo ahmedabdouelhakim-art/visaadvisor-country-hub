@@ -1,0 +1,20 @@
+{
+    "release_id":  "CH-0.1.0",
+    "validated_on":  "2026-08-09",
+    "status":  "pass",
+    "error_count":  0,
+    "warning_count":  0,
+    "table_counts":  {
+                         "change_log":  1,
+                         "coverage_matrix":  9,
+                         "datasets":  2,
+                         "entry_rules":  8,
+                         "field_evidence":  150,
+                         "places":  21,
+                         "planning_profiles":  12,
+                         "sources":  58
+                     },
+    "issues":  [
+
+               ]
+}

@@ -1,0 +1,49 @@
+{
+    "release_id":  "CH-0.1.0",
+    "version":  "0.1.0",
+    "release_date":  "2026-08-09",
+    "status":  "foundation_seed_pre_release",
+    "inputs":  [
+                   {
+                       "dataset_id":  "DSET-SA-2026-V1-1",
+                       "path":  "inputs/upstream/south-america-trip-planning-dataset-2026-v1-1.csv",
+                       "sha256":  "5a050c4eff696ce9b72697fdb91d48e6fcde2d1080d50a3bcc9b755922e44fc4",
+                       "records":  12
+                   },
+                   {
+                       "dataset_id":  "DSET-SA-2026-V1-1-SOURCES",
+                       "path":  "inputs/upstream/south-america-trip-planning-sources-2026-v1-1.csv",
+                       "sha256":  "ded9d23acd511e3681f6908c35d77488699ac470bbf2ef46a3ba221572d40432",
+                       "records":  44
+                   },
+                   {
+                       "dataset_id":  "DSET-EG-PASS-2026-V13",
+                       "path":  "inputs/upstream/egyptian-passport-entry-rules-2026-v13.csv",
+                       "sha256":  "fd8d35e9882ac186ec01010d379c2c7db1c5d08e445a93bd8728100cd8dacab3",
+                       "records":  8
+                   },
+                   {
+                       "dataset_id":  "DSET-EG-PASS-2026-V13-SOURCES",
+                       "path":  "inputs/upstream/egyptian-passport-sources-2026-v13.csv",
+                       "sha256":  "449dd0de99e46d61d33e81daa158cdb2bef63acced592cca74263a2750a962c3",
+                       "records":  12
+                   }
+               ],
+    "outputs":  {
+                    "datasets":  2,
+                    "places":  21,
+                    "planning_profiles":  12,
+                    "entry_rules":  8,
+                    "sources":  58,
+                    "field_evidence_edges":  150,
+                    "coverage_rows":  9,
+                    "change_rows":  1
+                },
+    "important_limitations":  [
+                                  "Import does not constitute a new live verification.",
+                                  "Legacy stay_or_validity and fee text remain non-atomic pending reviewed normalization.",
+                                  "Independent evidence-review and publishing approvals for high-stakes reuse are not recorded in this pre-release.",
+                                  "Cities, cost, safety, connectivity, healthcare and immigration contain contracts only.",
+                                  "Personal identity documents and contact details are excluded."
+                              ]
+}
