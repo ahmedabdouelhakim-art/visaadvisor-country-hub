@@ -1,0 +1,13 @@
+﻿source_id,destination_ar,source_title,source_url,evidence_scope_ar,source_role_ar,last_verified,dataset_version
+SRC-01,كينيا,Kenya eTA — General Information,https://etakenya.go.ke/general-information,إعفاء مصر من eTA حتى 60 يومًا ومتطلبات الجواز,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-02,ماكاو,Immigration Clearance of Non-residents of Macao,https://www.gov.mo/en/services/ps-1474/ps-1474b/,إعفاء مصر ومدة الإقامة حتى 90 يومًا وقاعدة صلاحية الجواز,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-03,سيشل,Visiting Seychelles,https://www.ics.gov.sc/visa-and-travel/visiting-seychelles,شروط الدخول والتذكرة والسكن والأموال وصلاحية الجواز,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-04,سيشل,Visitors Permit,https://www.ics.gov.sc/permits/visitors-permit,مدة تصريح الزائر الأولي ورسومه,مصدر حكومي داعم,2026-07-26,13.0
+SRC-05,رواندا,Visa on Arrival,https://www.migration.gov.rw/visa-on-arrival,تأشيرة الوصول المجانية لمواطني الاتحاد الأفريقي لمدة 30 يومًا,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-06,رواندا,Visitors Visa,https://www.migration.gov.rw/visa/visitors-visa,صلاحية الجواز وفئة الزيارة والرسوم,مصدر حكومي داعم,2026-07-26,13.0
+SRC-07,جزر المالديف,Tourist Visa — On Arrival,https://www.immigration.gov.mv/visa/tourist-visa,التأشيرة عند الوصول وIMUGA والحجز المدفوع وصلاحية الجواز,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-08,جزر المالديف,IMUGA Traveller Declaration,https://imuga.immigration.gov.mv/traveller,بوابة إقرار المسافر الرسمية,بوابة حكومية تشغيلية,2026-07-26,13.0
+SRC-09,تنزانيا,Tanzania eVisa Guidelines,https://visa.immigration.go.tz/guidelines,أهلية مصر، الرسوم، الصلاحية، ومتطلبات التأشيرة العادية,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-10,تنزانيا,Tanzania eVisa Terms and Conditions,https://visa.immigration.go.tz/termsandconditions,صلاحية الجواز والصفحة الفارغة وقواعد التقديم,مصدر حكومي داعم,2026-07-26,13.0
+SRC-11,سريلانكا,Sri Lanka ETA Fees and Application,https://www.eta.gov.lk/slvisa/visainfo/fees.jsp?locale=en_US,رسوم ETA ومدة 30 يومًا ودخولان,مصدر حكومي أساسي,2026-07-26,13.0
+SRC-12,أوغندا,Uganda Tourist Visa — Single Entry,https://www.immigration.go.ug/services/tourist-visa,الرسوم، المدة، صلاحية خطاب الموافقة، والمتطلبات,مصدر حكومي أساسي,2026-07-26,13.0
