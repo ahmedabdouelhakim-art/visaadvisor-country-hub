@@ -3,6 +3,7 @@ message: "If you use this dataset, cite the exact Country Hub release and its up
 title: "VisaAdvisor Country Hub v0.1.0: A Source-Backed Global Travel Intelligence Reference"
 type: dataset
 version: "0.1.0"
+doi: "10.5281/zenodo.21858354"
 date-released: 2026-08-09
 authors:
   - family-names: "Abdou"

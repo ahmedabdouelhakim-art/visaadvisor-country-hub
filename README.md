@@ -2,13 +2,15 @@
 
 **Country Hub v0.1.0 — public foundation pre-release**
 
+Version DOI: [10.5281/zenodo.21858354](https://doi.org/10.5281/zenodo.21858354)
+
 Country Hub is a source-dated, bilingual-ready, versioned travel-intelligence system. It is designed to power country pages, comparisons, downloadable datasets, research, and future APIs from one canonical evidence layer.
 
 This is not a finished worldwide database and it is not a collection of copied travel articles. Version 0.1.0 establishes the data contracts, evidence rules, freshness policy, release controls, and the first reusable records. It remains a pre-release pending the independently recorded review and publishing approvals required for definitive high-stakes reuse.
 
 ## What exists in v0.1.0
 
-- 12 South American jurisdiction planning profiles, imported from the verified South America Travel Planning Index v1.1.
+- 12 South American jurisdiction planning profiles: 11 reviewed records and one provisional Venezuela record whose operational review was due on 9 August 2026, imported from South America Travel Planning Index v1.1.
 - 8 short-visit entry-rule records for ordinary Egyptian passport holders, imported from Egyptian Passport Entry Rules v13.0.
 - 58 normalized source records: 56 registry records plus 2 official route-level URLs that the Egyptian v13 route table cited but its source registry omitted.
 - Field- and declared-composite evidence links that distinguish official-source synthesis from VisaAdvisor editorial judgment without pretending bundled legacy evidence is atomic.
@@ -91,7 +93,7 @@ See `data/seed/v0.1.0/coverage-matrix.csv` for the machine-readable view.
 
 ## Release standard
 
-A definitive public release must pass schema, relationship, freshness, evidence, bilingual-parity, privacy, and independent-approval checks. Version 0.1.0 is explicitly a public pre-release: its Arabic coverage is incomplete and independent evidence-review/publishing approvals are still recorded as pending. It must not be treated as current, definitive travel advice. Published immutable releases will use a later approved version; material corrections create a new semantic version and a visible change record.
+A definitive public release must pass schema, relationship, freshness, evidence, bilingual-parity, privacy, and independent-approval checks. Version 0.1.0 is explicitly a public pre-release: its Arabic coverage is incomplete and independent evidence-review/publishing approvals are still recorded as pending. It must not be treated as current, definitive travel advice. Definitive approved releases will use a later version; material corrections create a new semantic version and a visible change record.
 
 VisaAdvisor original compilation, structure, schemas, scripts, documentation, and editorial fields are licensed under CC BY 4.0 as described in `LICENSE.md`. Linked third-party official material remains subject to its publisher's terms and is not relicensed by this project.
 

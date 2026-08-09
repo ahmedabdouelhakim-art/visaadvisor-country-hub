@@ -15,10 +15,10 @@ commercially, provided that you:
 3. indicate whether changes were made; and
 4. do not imply endorsement by Ahmed Abdou, VisaAdvisor.ai, or any cited authority.
 
-Suggested attribution before a version DOI is assigned:
+Suggested attribution:
 
 > Ahmed Abdou, *VisaAdvisor Country Hub v0.1.0: A Source-Backed Global Travel Intelligence Reference*,
-> version 0.1.0, VisaAdvisor.ai, 9 August 2026.
+> version 0.1.0, VisaAdvisor.ai, 9 August 2026, https://doi.org/10.5281/zenodo.21858354.
 > https://github.com/ahmedabdouelhakim-art/visaadvisor-country-hub
 
 ## Third-party material
