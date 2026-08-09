@@ -17,7 +17,7 @@ commercially, provided that you:
 
 Suggested attribution before a version DOI is assigned:
 
-> Ahmed Abdou, *VisaAdvisor Global Travel Intelligence Reference: Country Hub*,
+> Ahmed Abdou, *VisaAdvisor Country Hub v0.1.0: A Source-Backed Global Travel Intelligence Reference*,
 > version 0.1.0, VisaAdvisor.ai, 9 August 2026.
 > https://github.com/ahmedabdouelhakim-art/visaadvisor-country-hub
 

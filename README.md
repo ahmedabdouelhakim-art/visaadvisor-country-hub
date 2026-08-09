@@ -1,17 +1,17 @@
 # VisaAdvisor Global Travel Intelligence Reference
 
-**Country Hub v0.1.0 — foundation and verified seed**
+**Country Hub v0.1.0 — public foundation pre-release**
 
 Country Hub is a source-dated, bilingual-ready, versioned travel-intelligence system. It is designed to power country pages, comparisons, downloadable datasets, research, and future APIs from one canonical evidence layer.
 
-This is not a finished worldwide database and it is not a collection of copied travel articles. Version 0.1.0 establishes the data contracts, evidence rules, freshness policy, release controls, and the first reusable records.
+This is not a finished worldwide database and it is not a collection of copied travel articles. Version 0.1.0 establishes the data contracts, evidence rules, freshness policy, release controls, and the first reusable records. It remains a pre-release pending the independently recorded review and publishing approvals required for definitive high-stakes reuse.
 
 ## What exists in v0.1.0
 
 - 12 South American jurisdiction planning profiles, imported from the verified South America Travel Planning Index v1.1.
 - 8 short-visit entry-rule records for ordinary Egyptian passport holders, imported from Egyptian Passport Entry Rules v13.0.
 - 58 normalized source records: 56 registry records plus 2 official route-level URLs that the Egyptian v13 route table cited but its source registry omitted.
-- Field-level evidence links that distinguish official-source synthesis from VisaAdvisor editorial judgment.
+- Field- and declared-composite evidence links that distinguish official-source synthesis from VisaAdvisor editorial judgment without pretending bundled legacy evidence is atomic.
 - A coverage matrix that leaves unsupported domains visibly empty.
 - Reproducible seed-building and validation scripts.
 - A portable semantic-layer guide for future analysis and reporting.
@@ -54,14 +54,14 @@ One factual value is stored once, scoped to a specific traveller scenario and ef
 
 ## Build and validate
 
-From the workspace root:
+From the repository root:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\build-seed.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\validate.ps1
 ```
 
-The build reads the two existing canonical workspace datasets. It does not scrape the web, overwrite those datasets, or infer missing values.
+The build reads the four bundled, exact-version upstream CSV files under `inputs/upstream/`. It does not scrape the web, overwrite those inputs, or infer missing values.
 
 ## Interpretation rules
 
@@ -91,7 +91,7 @@ See `data/seed/v0.1.0/coverage-matrix.csv` for the machine-readable view.
 
 ## Release standard
 
-A public release must pass schema, relationship, freshness, evidence, bilingual-parity, and privacy checks. Published releases are immutable. Material corrections create a new semantic version and a visible change record.
+A definitive public release must pass schema, relationship, freshness, evidence, bilingual-parity, privacy, and independent-approval checks. Version 0.1.0 is explicitly a public pre-release: its Arabic coverage is incomplete and independent evidence-review/publishing approvals are still recorded as pending. It must not be treated as current, definitive travel advice. Published immutable releases will use a later approved version; material corrections create a new semantic version and a visible change record.
 
 VisaAdvisor original compilation, structure, schemas, scripts, documentation, and editorial fields are licensed under CC BY 4.0 as described in `LICENSE.md`. Linked third-party official material remains subject to its publisher's terms and is not relicensed by this project.
 

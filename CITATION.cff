@@ -9,10 +9,12 @@ authors:
     given-names: "Ahmed"
     affiliation: "VisaAdvisor.ai"
 abstract: >-
-  A source-dated, bilingual-ready foundation seed for global travel intelligence.
+  A source-dated, bilingual-ready public foundation pre-release for global travel intelligence.
   Version 0.1.0 contains 21 place records, 12 South America planning profiles,
   eight scoped Egyptian-passport tourism routes, 58 normalized sources, and 150
-  field-level evidence relationships, with explicit freshness and governance controls.
+  field- and declared-composite evidence relationships, with explicit freshness
+  and governance controls. Independent high-stakes review and publishing
+  approvals remain pending; this version is not definitive travel advice.
 url: "https://visaadvisor.ai/country-hub/"
 repository-code: "https://github.com/ahmedabdouelhakim-art/visaadvisor-country-hub"
 license: CC-BY-4.0

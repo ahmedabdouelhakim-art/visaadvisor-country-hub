@@ -8,3 +8,4 @@
 *.zip binary
 *.png binary
 *.jpg binary
+inputs/upstream/*.csv -text
