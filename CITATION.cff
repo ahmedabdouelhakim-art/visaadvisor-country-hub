@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this dataset, cite the exact Country Hub release and its upstream source datasets."
+title: "VisaAdvisor Country Hub v0.1.0: A Source-Backed Global Travel Intelligence Reference"
+type: dataset
+version: "0.1.0"
+date-released: 2026-08-09
+authors:
+  - family-names: "Abdou"
+    given-names: "Ahmed"
+    affiliation: "VisaAdvisor.ai"
+abstract: >-
+  A source-dated, bilingual-ready foundation seed for global travel intelligence.
+  Version 0.1.0 contains 21 place records, 12 South America planning profiles,
+  eight scoped Egyptian-passport tourism routes, 58 normalized sources, and 150
+  field-level evidence relationships, with explicit freshness and governance controls.
+url: "https://visaadvisor.ai/country-hub/"
+repository-code: "https://github.com/ahmedabdouelhakim-art/visaadvisor-country-hub"
+license: CC-BY-4.0
+keywords:
+  - travel intelligence
+  - country data
+  - travel planning
+  - entry rules
+  - official sources
+  - evidence provenance
+  - open data
+  - tourism research
