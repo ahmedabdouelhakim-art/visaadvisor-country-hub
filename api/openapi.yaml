@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: VisaAdvisor Country Hub API
+  version: 0.1.0
+  description: >-
+    Initial read-only contract for source-dated travel intelligence. This contract
+    is a design artifact; no production endpoint is claimed in v0.1.0.
+servers:
+  - url: https://api.visaadvisor.ai
+    description: Proposed production base URL
+paths:
+  /v0/places/{placeId}:
+    get:
+      summary: Get a jurisdiction record and coverage state
+      parameters:
+        - $ref: '#/components/parameters/PlaceId'
+      responses:
+        '200':
+          description: Source-dated place record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v0/entry-rules:
+    get:
+      summary: Find scoped entry-rule records
+      parameters:
+        - name: passportIssuer
+          in: query
+          required: true
+          schema: {type: string, pattern: '^[A-Z]{2}$'}
+        - name: destination
+          in: query
+          required: true
+          schema: {type: string, pattern: '^[A-Z]{2}$'}
+        - name: purpose
+          in: query
+          required: false
+          schema: {type: string, default: tourism_short_visit}
+      responses:
+        '200':
+          description: Matching scoped rules with evidence and freshness
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v0/sources/{sourceId}:
+    get:
+      summary: Get a normalized source record
+      parameters:
+        - name: sourceId
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Source identity and review controls
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /v0/releases/{version}:
+    get:
+      summary: Get immutable release metadata
+      parameters:
+        - name: version
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Release manifest and artifacts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  parameters:
+    PlaceId:
+      name: placeId
+      in: path
+      required: true
+      schema: {type: string, pattern: '^PLC-[A-Z]{2}$'}
+  schemas:
+    Envelope:
+      type: object
+      required: [data, as_of, dataset_version, limitations]
+      properties:
+        data: {}
+        assumptions:
+          type: array
+          items: {type: string}
+        as_of: {type: string, format: date-time}
+        verified_at: {type: [string, 'null'], format: date-time}
+        next_review_at: {type: [string, 'null'], format: date-time}
+        freshness_status:
+          type: [string, 'null']
+          enum: [current, due, stale, expired, null]
+        verification_status:
+          type: [string, 'null']
+          enum: [unverified, provisional, verified, disputed, withdrawn, null]
+        sources:
+          type: array
+          items: {type: object}
+        limitations:
+          type: array
+          items: {type: string}
+        dataset_version: {type: string}
+        record_revision: {type: [integer, 'null'], minimum: 1}
