@@ -2,11 +2,13 @@
 
 ## 0.1.0 — 2026-08-09
 
+Version DOI: https://doi.org/10.5281/zenodo.21858354
+
 - Established the jurisdiction, planning, entry-rule, source, evidence, coverage, and release contracts.
 - Imported 12 South America planning profiles without upgrading their existing review status.
 - Imported 8 Egyptian-passport entry rules as legacy text pending atomic requirement and fee normalization.
 - Unified 44 South America and 12 Egyptian-passport registry records, then preserved 2 additional official route-level URLs omitted from the Egyptian source registry as explicitly labelled supplemental records.
-- Added field-level provenance and explicit editorial-only evidence rows.
+- Added field- and declared-composite provenance plus explicit editorial-only evidence rows.
 - Added source, freshness, correction, privacy, bilingual, and high-stakes governance.
 - Added deterministic build, checksum, and validation tooling.
 
