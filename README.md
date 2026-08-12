@@ -1,5 +1,7 @@
 # VisaAdvisor Global Travel Intelligence Reference
 
+[العربية](README.ar.md)
+
 **Country Hub v0.1.0 — public foundation pre-release**
 
 Version DOI: [10.5281/zenodo.21858354](https://doi.org/10.5281/zenodo.21858354)
